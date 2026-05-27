@@ -29,7 +29,7 @@ create lnk
 # Создаём виртуальное окружение
     python3 -m venv venv
 
-# Активируем его
+    - Активируем его
     source venv/bin/activate
 
     # Устанавливаем правильный keystone-engine (НЕ keystone!)
